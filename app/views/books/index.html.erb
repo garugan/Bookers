@@ -1,2 +1,16 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h1>Books</h1>
+
+<p>Title</p>
+<% @books.each do |book| %>
+<p><%= book.title %></p>
+
+<% end %>
+
+<p>Body</p>
+<% @books.each do |book| %>
+<p><%= book.body %></p>
+<%= link_to "Show", book_path(book.id) %> 
+<%= link_to "Edit", edit_book_path(book.id) %>
+<%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
+
+<% end %>
